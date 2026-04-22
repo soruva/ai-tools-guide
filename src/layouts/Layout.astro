@@ -32,18 +32,19 @@ nav a {
 h1, h2 { color: #000; border-left: 5px solid #0984e3; padding-left: 15px; }
 li { 
   background: #fff; 
-  margin-bottom: 15px; 
-  padding: 20px; 
-  border-radius: 10px; 
+  margin-bottom: 20px; 
+  padding: 25px; 
+  border-radius: 15px; 
   list-style: none; 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
-  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
+  transition: all 0.3s ease; /* ここで「ふわっ」とした動きの速さを指定 */
+  border: 1px solid #eee;
 }
-li:hover { transform: translateY(-3px); }
-a { color: #0984e3; text-decoration: none; }
-/* Layout.astro の <style> 内に追加 */
-html {
-  scroll-behavior: smooth;
+
+li:hover { 
+  transform: translateY(-5px); /* 上に5px浮き上がる */
+  box-shadow: 0 12px 20px rgba(9, 132, 227, 0.15); /* 影を少し強めて浮遊感を出す */
+  border-color: #0984e3; /* 枠線をレイさんのテーマカラーの青に */
 }
     </style>
   </head>
