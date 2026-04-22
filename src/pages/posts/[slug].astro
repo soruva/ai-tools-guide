@@ -8,18 +8,90 @@ export async function getStaticPaths() {
     props: { post },
   }));
 }
+
 const { Content, frontmatter } = Astro.props.post;
 ---
 
 <Layout title={frontmatter.title}>
-  <article style="background: #ffffff; padding: 40px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-top: 20px;">
-    <a href="/" style="text-decoration: none; color: #0984e3; font-weight: 500; font-size: 0.9rem;">← HOMEへ戻る</a>
-    <h1 style="margin-top: 20px; font-size: 2rem; border-left: none; padding-left: 0;">{frontmatter.title}</h1>
-    <p style="color: #666; font-size: 0.9rem;">公開日: {frontmatter.date}</p>
-    <hr style="border: 0; border-top: 1px solid #f0f0f0; margin: 30px 0;" />
-    
-    <div style="font-size: 1.1rem; line-height: 1.8;">
+
+  <article>
+
+    <!-- 戻る -->
+    <a href="/" class="back-link">← HOME</a>
+
+    <!-- タイトル -->
+    <h1>{frontmatter.title}</h1>
+
+    <!-- 日付 -->
+    <p class="date">公開日: {frontmatter.date}</p>
+
+    <hr />
+
+    <!-- 本文 -->
+    <div class="content">
       <Content />
     </div>
+
+    <!-- 🔥 CTA（超重要） -->
+    <section class="cta">
+      <h2>まずは無料で試してみる</h2>
+      <p>AIは実際に触るのが一番早いです。</p>
+
+      <a href="/tools/chatgpt" class="cta-btn">ChatGPTを使ってみる</a>
+    </section>
+
   </article>
+
+  <style>
+    article {
+      margin-top: 20px;
+    }
+
+    .back-link {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: var(--subtext);
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2rem;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: var(--subtext);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 30px 0;
+    }
+
+    .content {
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .content p {
+      margin-bottom: 16px;
+    }
+
+    .content h2 {
+      margin-top: 40px;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+
 </Layout>
