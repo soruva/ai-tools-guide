@@ -133,3 +133,21 @@ footer {
     font-size: 1.8rem;
   }
 }
+
+/* ===== Table 強化 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  font-weight: 600;
+  padding: 12px;
+  border-bottom: 2px solid #111;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eaeaea;
+}
