@@ -1,30 +1,16 @@
 ---
-const pageTitle = "AI Tools Guide";
-const posts = [
-  { title: "ChatGPTとClaude 3.5を徹底比較！", url: "/posts/compare-ai" },
-  { title: "AI初心者が副業で月5万稼ぐロードマップ", url: "/posts/roadmap" }
-];
+import Layout from '../layouts/Layout.astro';
+const posts = await Astro.glob('../content/blog/*.md');
 ---
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>{pageTitle}</title>
-    <style>
-      body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-      h1 { color: #333; border-bottom: 2px solid #0070f3; }
-      .post-list { list-style: none; padding: 0; }
-      .post-item { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-      a { text-decoration: none; color: #0070f3; font-weight: bold; }
-    </style>
-  </head>
-  <body>
-    <h1>{pageTitle}</h1>
-    <p>最新のAIツールやSaaSを厳選し、比較・レビューを通じて最適な選択をサポートする情報サイトです。</p>
-    <h2>最新記事</h2>
-    <ul class="post-list">
-      {posts.map((post) => (
-        <li class="post-item"><a href={post.url}>{post.title}</a></li>
-      ))}
-    </ul>
-  </body>
-</html>
+<Layout title="最新のAIツール比較・活用ガイド">
+  <h1>AI Tools Guide</h1>
+  <p>最新AI（ChatGPT, Claude等）の比較と、初心者向け活用法を発信します。</p>
+  <h2>最新記事</h2>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={post.url}>{post.frontmatter.title}</a> — {post.frontmatter.date}
+      </li>
+    ))}
+  </ul>
+</Layout>
