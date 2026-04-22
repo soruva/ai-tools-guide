@@ -1,23 +1,86 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// ここを修正：ファイルを読み込むパスを確実に指定
 const posts = await Astro.glob('../content/blog/*.md');
 ---
-<Layout title="最新のAIツール比較・活用ガイド">
-  <h1>AI Tools Guide</h1>
-  <p>最新AI（ChatGPT, Claude等）の比較と、初心者向け活用法を発信します。</p>
-  
-  <h2>最新記事</h2>
-  <ul>
-    {posts.map((post) => (
-      <li>
-        {/* URLの組み立てを修正 */}
-        <a href={`/posts/${post.file.split('/').pop().split('.').shift()}`}>
-          {post.frontmatter.title}
-        </a> 
-        — {post.frontmatter.date}
-      </li>
-    ))}
-  </ul>
+
+<Layout title="初心者向けAIツール比較ガイド">
+
+  {/* ヒーロー */}
+  <section>
+    <h1>初心者向けAIツール完全ガイド</h1>
+    <p>
+      ChatGPT・Claude・Geminiなど人気AIツールの違いと使い方を、
+      初心者にもわかりやすく解説します。
+    </p>
+    <p>「どれを使えばいいか分からない」を解決します。</p>
+    <a href="/start">▶ 初心者の方はこちら</a>
+  </section>
+
+  {/* 比較（最重要） */}
+  <section>
+    <h2>人気AIツール比較</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ツール</th>
+          <th>特徴</th>
+          <th>おすすめ用途</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ChatGPT</td>
+          <td>万能で初心者にも使いやすい</td>
+          <td>まず最初に使う1つ</td>
+          <td><a href="/tools/chatgpt">詳細を見る</a></td>
+        </tr>
+        <tr>
+          <td>Claude</td>
+          <td>長文・文章作成に強い</td>
+          <td>ブログ・記事作成</td>
+          <td><a href="/tools/claude">詳細を見る</a></td>
+        </tr>
+        <tr>
+          <td>Gemini</td>
+          <td>Google連携・情報収集に強い</td>
+          <td>検索・調べ物</td>
+          <td><a href="/tools/gemini">詳細を見る</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {/* 使い分けで差別化 */}
+    <p>
+      初心者はまずChatGPTから始め、
+      慣れてきたらClaudeで文章作成、
+      Geminiで情報収集をすると効率よく使えます。
+    </p>
+  </section>
+
+  {/* ナビ */}
+  <section>
+    <h2>目的から探す</h2>
+    <ul>
+      <li><a href="/category/fukugyo">副業で使いたい</a></li>
+      <li><a href="/category/blog">ブログ運営</a></li>
+      <li><a href="/category/work">業務効率化</a></li>
+    </ul>
+  </section>
+
+  {/* 記事一覧 */}
+  <section>
+    <h2>最新記事</h2>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.file.split('/').pop().split('.').shift()}`}>
+            {post.frontmatter.title}
+          </a>
+          — {post.frontmatter.date}
+        </li>
+      ))}
+    </ul>
+  </section>
+
 </Layout>
