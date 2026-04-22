@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://netlify.app',
+  site: 'https://あなたのプロジェクト名.pages.dev',
 });
