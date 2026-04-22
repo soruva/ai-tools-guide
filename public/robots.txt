@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://ai-tools-guide.pages.dev/sitemap.xml
