@@ -1,0 +1,20 @@
+---
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../content/blog/*.md');
+  return posts.map(post => ({
+    params: { slug: post.file.split('/').pop().split('.').shift() },
+    props: { post },
+  }));
+}
+const { Content, frontmatter } = Astro.props.post;
+---
+<html lang="ja">
+  <head><meta charset="utf-8" /><title>{frontmatter.title}</title></head>
+  <body style="font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
+    <a href="/">← HOMEへ戻る</a>
+    <h1>{frontmatter.title}</h1>
+    <p>公開日: {frontmatter.date}</p>
+    <hr />
+    <Content />
+  </body>
+</html>
