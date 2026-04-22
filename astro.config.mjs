@@ -1,5 +1,3 @@
-import { defineConfig } from 'astro/config';
-
 export default defineConfig({
-  site: 'https://あなたのプロジェクト名.pages.dev',
+  site: 'https://ai-tools-guide-345.pages.dev',
 });
