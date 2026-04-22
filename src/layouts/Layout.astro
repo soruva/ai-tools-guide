@@ -5,103 +5,146 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <title>{title} | AI Tools Guide</title>
+
     <style is:global>
-  :root {
-    --primary: #0984e3;
-    --bg: #f5f5f7; 
-    --text: #1d1d1f; 
-    --card-bg: #ffffff;
-  }
+      :root {
+        --bg: #fafafa;
+        --text: #111111;
+        --subtext: #666666;
+        --border: #eaeaea;
+        --card: #ffffff;
+        --accent: #111111;
+      }
 
-  body { 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    max-width: 850px; 
-    margin: 0 auto; 
-    /* 上の余白を 60px → 20px に大幅に削減 */
-    padding: 20px 20px 60px 20px; 
-    line-height: 1.7; 
-    color: var(--text);
-    background-color: var(--bg);
-    -webkit-font-smoothing: antialiased;
-  }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 18px 60px;
+        line-height: 1.8;
+        color: var(--text);
+        background: var(--bg);
+      }
 
-  /* ナビゲーションの余白も調整 */
-  nav { 
-    position: sticky;
-    top: 20px;
-    z-index: 100;
-    /* 下の余白を 80px → 40px に短縮 */
-    margin-bottom: 40px; 
-    padding: 12px 30px; 
-    background: rgba(245, 245, 247, 0.7); 
-    backdrop-filter: blur(20px);
-    border-radius: 50px; 
-    border: 1px solid rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
+      /* ナビ */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        font-size: 0.9rem;
+      }
 
-  /* サイトタイトル(h1)を上に詰める */
-  h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-  
-  /* カード（記事リスト）のデザイン */
-  li { 
-    background: var(--card-bg); 
-    margin-bottom: 24px; 
-    padding: 35px; 
-    border-radius: 24px; 
-    list-style: none; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+      nav .left {
+        font-weight: 600;
+      }
 
-  /* 最新記事タイトルの位置調整 */
-  h2 {
-    font-size: 1.5rem;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* 記事カードの端と揃うように微調整 */
-    padding-left: 10px;
-  }
+      nav .right {
+        display: flex;
+        gap: 20px;
+      }
 
-  h2::before {
-    content: "Latest";
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--primary);
-    letter-spacing: 0.1em;
-  }
+      nav a {
+        text-decoration: none;
+        color: var(--subtext);
+      }
 
-  /* リンクの装飾 */
-  nav a { 
-    text-decoration: none; 
-    color: var(--text); 
-    font-weight: 600; 
-    transition: color 0.3s;
-  }
-  nav a:hover { color: var(--primary); }
+      nav a:hover {
+        color: var(--text);
+      }
 
-  footer { margin-top: 50px; font-size: 0.8rem; color: #666; text-align: center; }
+      /* タイトル */
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+      }
 
-</style>
+      h2 {
+        font-size: 1.2rem;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--subtext);
+      }
+
+      /* リスト（記事一覧） */
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* CTA */
+      .cta-btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 16px;
+        border: 1px solid var(--text);
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+
+      .cta-btn:hover {
+        background: var(--text);
+        color: #fff;
+      }
+
+      /* セクション間隔 */
+      section {
+        margin-bottom: 40px;
+      }
+
+      /* フッター */
+      footer {
+        margin-top: 60px;
+        font-size: 0.75rem;
+        color: #aaa;
+        text-align: center;
+      }
+
+      /* モバイル */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <nav>
-      <a href="/">HOME</a>
-      <a href="/about">運営者情報</a>
-      <a href="/about#contact">お問い合わせ</a>
+      <div class="left">
+        <a href="/">AI Tools Guide</a>
+      </div>
+      <div class="right">
+        <a href="/start">Start</a>
+        <a href="/about">About</a>
+      </div>
     </nav>
-    <slot />
-    <footer>© 2026 AI Tools Guide</footer>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      © 2026 AI Tools Guide
+    </footer>
   </body>
 </html>
