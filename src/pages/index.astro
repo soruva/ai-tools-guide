@@ -5,20 +5,21 @@ const posts = await Astro.glob('../content/blog/*.md');
 
 <Layout title="初心者向けAIツール比較ガイド">
 
-  {/* ヒーロー */}
+  <!-- ヒーロー -->
   <section>
-    <h1>初心者向けAIツール完全ガイド</h1>
+    <h1>AIツール、どれを使う？</h1>
     <p>
-      ChatGPT・Claude・Geminiなど人気AIツールの違いと使い方を、
-      初心者にもわかりやすく解説します。
+      ChatGPT・Claude・Geminiの違いを、初心者向けにシンプルに解説。
     </p>
-    <p>「どれを使えばいいか分からない」を解決します。</p>
-    <a href="/start">▶ 初心者の方はこちら</a>
+    <p>迷ったら、まずこれだけ見ればOKです。</p>
+
+    <a href="/start" class="cta-btn">▶ 5分でわかるAIの始め方</a>
   </section>
 
-  {/* 比較（最重要） */}
+  <!-- 比較（最重要） -->
   <section>
     <h2>人気AIツール比較</h2>
+
     <table>
       <thead>
         <tr>
@@ -30,45 +31,52 @@ const posts = await Astro.glob('../content/blog/*.md');
       </thead>
       <tbody>
         <tr>
-          <td>ChatGPT</td>
-          <td>万能で初心者にも使いやすい</td>
-          <td>まず最初に使う1つ</td>
-          <td><a href="/tools/chatgpt">詳細を見る</a></td>
+          <td><strong>ChatGPT</strong></td>
+          <td>万能・初心者でもすぐ使える</td>
+          <td>最初の1つに最適</td>
+          <td><a href="/tools/chatgpt" class="cta-btn">使ってみる</a></td>
         </tr>
         <tr>
-          <td>Claude</td>
-          <td>長文・文章作成に強い</td>
-          <td>ブログ・記事作成</td>
-          <td><a href="/tools/claude">詳細を見る</a></td>
+          <td><strong>Claude</strong></td>
+          <td>文章作成が自然で高品質</td>
+          <td>ブログ・ライティング</td>
+          <td><a href="/tools/claude" class="cta-btn">詳細</a></td>
         </tr>
         <tr>
-          <td>Gemini</td>
-          <td>Google連携・情報収集に強い</td>
-          <td>検索・調べ物</td>
-          <td><a href="/tools/gemini">詳細を見る</a></td>
+          <td><strong>Gemini</strong></td>
+          <td>Google連携・検索に強い</td>
+          <td>情報収集・調査</td>
+          <td><a href="/tools/gemini" class="cta-btn">詳細</a></td>
         </tr>
       </tbody>
     </table>
 
-    {/* 使い分けで差別化 */}
     <p>
-      初心者はまずChatGPTから始め、
-      慣れてきたらClaudeで文章作成、
-      Geminiで情報収集をすると効率よく使えます。
+      👉 迷っているなら、まずは<strong>ChatGPT</strong>から始めるのがおすすめです。
     </p>
   </section>
 
-  {/* ナビ */}
+  <!-- CTA強化 -->
+  <section>
+    <h2>まずは1つ使ってみる</h2>
+    <p>
+      AIは「読むより触る」が一番早いです。
+    </p>
+
+    <a href="/tools/chatgpt" class="cta-btn">▶ ChatGPTを無料で使う</a>
+  </section>
+
+  <!-- ナビ -->
   <section>
     <h2>目的から探す</h2>
     <ul>
-      <li><a href="/category/fukugyo">副業で使いたい</a></li>
+      <li><a href="/category/fukugyo">副業で使う</a></li>
       <li><a href="/category/blog">ブログ運営</a></li>
       <li><a href="/category/work">業務効率化</a></li>
     </ul>
   </section>
 
-  {/* 記事一覧 */}
+  <!-- 記事一覧 -->
   <section>
     <h2>最新記事</h2>
     <ul>
@@ -77,7 +85,9 @@ const posts = await Astro.glob('../content/blog/*.md');
           <a href={`/posts/${post.file.split('/').pop().split('.').shift()}`}>
             {post.frontmatter.title}
           </a>
-          — {post.frontmatter.date}
+          <div style="font-size:0.8rem; color:#888;">
+            {post.frontmatter.date}
+          </div>
         </li>
       ))}
     </ul>
