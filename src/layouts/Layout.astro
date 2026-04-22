@@ -51,6 +51,23 @@ const { title } = Astro.props;
     box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* 影をより柔らかく */
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  /* 既存の h1, h2 のスタイルをこのように修正 */
+h1, h2 { 
+  color: var(--text); 
+  padding-left: 10px; /* 少しだけ左に空間を作る */
+  margin-left: 0; 
+  border-left: 5px solid var(--primary); /* 青いラインをアクセントに */
+}
+
+/* もし、もっと中央に寄せたい場合はこちら */
+h1, h2, p {
+  /* 記事リスト（max-width）と連動させるための設定 */
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
 
   </head>
