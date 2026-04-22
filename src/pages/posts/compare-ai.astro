@@ -1,15 +1,114 @@
 ---
-const title = "ChatGPTとClaude 3.5を徹底比較！初心者はどっち？";
+import Layout from '../layouts/Layout.astro';
+
+const title = "ChatGPTとClaudeを徹底比較｜初心者はどっち？";
 ---
-<html lang="ja">
-  <head><meta charset="utf-8" /><title>{title}</title></head>
-  <body style="font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
-    <a href="/">← 戻る</a>
+
+<Layout title={title}>
+
+  <article>
+
+    <a href="/" class="back-link">← HOME</a>
+
     <h1>{title}</h1>
-    <p>結論から言うと、文章の自然さならClaude、多機能さならChatGPTがおすすめです。</p>
-    <h2>Claude 3.5 Sonnetの魅力</h2>
-    <p>日本語が非常に自然で、まるで人間と話しているような感覚で使えます。無料版でも非常に高性能です。</p>
-    <h2>ChatGPTの魅力</h2>
-    <p>画像生成やデータ分析など、できることの幅が広いです。ユーザー数が多いのも安心材料です。</p>
-  </body>
-</html>
+
+    <p class="lead">
+      結論から言うと、初心者はまずChatGPTから始めるのがおすすめです。  
+      ただし、文章作成に特化するならClaudeの方が使いやすい場合もあります。
+    </p>
+
+    <h2>ChatGPTとClaudeの違い（かんたん比較）</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>ChatGPT</th>
+          <th>Claude</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>使いやすさ</td>
+          <td>◎ 初心者向け</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td>日本語の自然さ</td>
+          <td>○</td>
+          <td>◎ 非常に自然</td>
+        </tr>
+        <tr>
+          <td>機能の多さ</td>
+          <td>◎ 多機能</td>
+          <td>○</td>
+        </tr>
+        <tr>
+          <td>向いている用途</td>
+          <td>なんでもOK</td>
+          <td>文章作成</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Claudeの特徴：自然な文章が強み</h2>
+    <p>
+      Claudeは、日本語の自然さと読みやすさに優れています。  
+      ブログ記事や文章作成では、違和感の少ない文章を作りやすいのが特徴です。
+    </p>
+
+    <h2>ChatGPTの特徴：万能で最初の1つに最適</h2>
+    <p>
+      ChatGPTは、文章作成だけでなく、画像生成・調べ物・アイデア出しなど幅広く使えます。  
+      「とりあえずAIを使ってみたい」という方には最適です。
+    </p>
+
+    <h2>結局どっちを選ぶべき？</h2>
+    <ul>
+      <li>迷っている → ChatGPT</li>
+      <li>文章をしっかり書きたい → Claude</li>
+    </ul>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>まずは無料で試してみる</h2>
+
+      <a href="/tools/chatgpt" class="cta-btn">ChatGPTを使ってみる</a>
+      <br /><br />
+      <a href="/tools/claude" class="cta-btn">Claudeを使ってみる</a>
+    </section>
+
+  </article>
+
+  <style>
+    .back-link {
+      font-size: 0.85rem;
+      color: var(--subtext);
+      text-decoration: none;
+    }
+
+    .lead {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+    }
+
+    .cta {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  </style>
+
+</Layout>
