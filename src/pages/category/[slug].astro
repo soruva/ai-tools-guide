@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  // categoryをfrontmatterから取得
+  const categories = [...new Set(posts.map(p => p.data.category).filter(Boolean))];
+
+  return categories.map((category) => ({
+    params: { slug: category },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const posts = await getCollection('blog');
+
+const filteredPosts = posts
+  .filter((post) => post.data.category === slug)
+  .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+---
+
+<Layout title={`${slug}カテゴリ｜AI Tools Guide`}>
+
+  <section>
+    <h1>{slug}カテゴリ</h1>
+    <p>AIツールに関する「{slug}」の記事一覧です。</p>
+  </section>
+
+  <section>
+    <h2>記事一覧</h2>
+
+    <ul>
+      {filteredPosts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}`}>
+            {post.data.title}
+          </a>
+
+          <div style="font-size:0.8rem; color:#888;">
+            {post.data.date}
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    {filteredPosts.length === 0 && (
+      <p>このカテゴリの記事はまだありません。</p>
+    )}
+  </section>
+
+  <section>
+    <h2>他カテゴリ</h2>
+
+    <ul>
+      <li><a href="/category/fukugyo">副業</a></li>
+      <li><a href="/category/blog">ブログ</a></li>
+      <li><a href="/category/work">業務効率化</a></li>
+    </ul>
+  </section>
+
+  <style>
+    section {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+  </style>
+
+</Layout>
