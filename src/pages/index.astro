@@ -1,13 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// 安定版：glob + sort安全処理
 const posts = await Astro.glob('../content/blog/*.md');
 
-const sortedPosts = posts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.date).getTime() -
-    new Date(a.frontmatter.date).getTime()
-);
+const sortedPosts = posts
+  .map((p) => ({
+    slug: p.file.split('/').pop().split('.').shift(),
+    title: p.frontmatter.title,
+    date: p.frontmatter.date,
+  }))
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 ---
 
 <Layout title="初心者向けAIツール比較ガイド">
@@ -33,9 +36,10 @@ const sortedPosts = posts.sort(
           <th>ツール</th>
           <th>特徴</th>
           <th>おすすめ用途</th>
-          <th></th>
+          <th>リンク</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td><strong>ChatGPT</strong></td>
@@ -43,12 +47,14 @@ const sortedPosts = posts.sort(
           <td>まず最初に試すならこれ</td>
           <td><a href="/tools/chatgpt" class="cta-btn">使ってみる</a></td>
         </tr>
+
         <tr>
           <td><strong>Claude</strong></td>
           <td>自然な文章生成が得意</td>
           <td>ブログ・文章作成</td>
           <td><a href="/tools/claude" class="cta-btn">詳細</a></td>
         </tr>
+
         <tr>
           <td><strong>Gemini</strong></td>
           <td>Google連携・情報収集向き</td>
@@ -80,20 +86,18 @@ const sortedPosts = posts.sort(
   <!-- CTA -->
   <section>
     <h2>まずは1つだけ触ってみる</h2>
-    <p>
-      AIは「読む」より「使う」ほうが早く理解できます。
-    </p>
+    <p>AIは「読む」より「使う」ほうが早く理解できます。</p>
 
     <a href="/tools/chatgpt" class="cta-btn">ChatGPTを無料で使う</a>
   </section>
 
-  <!-- ナビ -->
+  <!-- ナビ（重要修正） -->
   <section>
     <h2>目的から探す</h2>
     <ul>
-      <li><a href="/category/fukugyo">副業で使う</a></li>
-      <li><a href="/category/blog">ブログ運営</a></li>
-      <li><a href="/category/work">業務効率化</a></li>
+      <li><a href="/start">副業で使う</a></li>
+      <li><a href="/start">ブログ運営</a></li>
+      <li><a href="/start">業務効率化</a></li>
     </ul>
   </section>
 
@@ -106,17 +110,18 @@ const sortedPosts = posts.sort(
     </p>
   </section>
 
-  <!-- 記事一覧 -->
+  <!-- 記事一覧（安定版） -->
   <section>
     <h2>最新記事</h2>
+
     <ul>
       {sortedPosts.map((post) => (
         <li>
-          <a href={`/posts/${post.file.split('/').pop().split('.').shift()}`}>
-            {post.frontmatter.title}
+          <a href={`/posts/${post.slug}`}>
+            {post.title}
           </a>
           <div style="font-size:0.8rem; color:#888;">
-            {post.frontmatter.date}
+            {post.date}
           </div>
         </li>
       ))}
