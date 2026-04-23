@@ -106,6 +106,13 @@ tr:last-child td {
   margin-top: 10px;
 }
 
+.cta-btn {
+  box-shadow: 0 10px 25px rgba(124,92,255,0.25);
+}
+
+.cta-btn:hover {
+  box-shadow: 0 14px 30px rgba(124,92,255,0.35);
+}
 .cta-btn:hover {
   transform: translateY(-2px);
   opacity: 0.95;
