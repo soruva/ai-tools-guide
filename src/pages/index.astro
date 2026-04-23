@@ -1,32 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// 安定版：glob + sort安全処理
-const posts = await Astro.glob('../content/blog/*.md');
+const posts = await getCollection('blog');
 
-const sortedPosts = posts
-  .map((p) => ({
-    slug: p.file.split('/').pop().split('.').shift(),
-    title: p.frontmatter.title,
-    date: p.frontmatter.date,
-  }))
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+const sortedPosts = posts.sort(
+  (a, b) =>
+    new Date(b.data.date).getTime() -
+    new Date(a.data.date).getTime()
+);
 ---
 
 <Layout title="初心者向けAIツール比較ガイド">
 
-  <!-- ヒーロー -->
   <section>
     <h1>AIツール、どれを使えばいいのか迷っていませんか</h1>
     <p>
       ChatGPT・Claude・Geminiの違いを、初心者向けにシンプルに整理しています。
     </p>
-    <p>まずは全体像だけ押さえておけば十分です。</p>
 
     <a href="/start" class="cta-btn">5分でわかるAIの始め方</a>
   </section>
 
-  <!-- 比較 -->
   <section>
     <h2>人気AIツール比較</h2>
 
@@ -36,81 +31,30 @@ const sortedPosts = posts
           <th>ツール</th>
           <th>特徴</th>
           <th>おすすめ用途</th>
-          <th>リンク</th>
         </tr>
       </thead>
-
       <tbody>
         <tr>
-          <td><strong>ChatGPT</strong></td>
-          <td>幅広く使える万能型</td>
-          <td>まず最初に試すならこれ</td>
-          <td><a href="/tools/chatgpt" class="cta-btn">使ってみる</a></td>
+          <td>ChatGPT</td>
+          <td>万能型</td>
+          <td>初心者向け</td>
         </tr>
-
         <tr>
-          <td><strong>Claude</strong></td>
-          <td>自然な文章生成が得意</td>
-          <td>ブログ・文章作成</td>
-          <td><a href="/tools/claude" class="cta-btn">詳細</a></td>
+          <td>Claude</td>
+          <td>文章が自然</td>
+          <td>ブログ向け</td>
         </tr>
-
         <tr>
-          <td><strong>Gemini</strong></td>
-          <td>Google連携・情報収集向き</td>
-          <td>調べ物・リサーチ</td>
-          <td><a href="/tools/gemini" class="cta-btn">詳細</a></td>
+          <td>Gemini</td>
+          <td>検索強い</td>
+          <td>リサーチ</td>
         </tr>
       </tbody>
     </table>
 
-    <p style="margin-top:16px;">
-      迷うならまず<strong>ChatGPT</strong>から始めるのが一番シンプルです。
-    </p>
-
-    <a href="/tools/chatgpt" class="cta-btn">
-      ChatGPTを試してみる
-    </a>
+    <a href="/tools/chatgpt" class="cta-btn">ChatGPTを試す</a>
   </section>
 
-  <!-- ベネフィット -->
-  <section>
-    <h2>AIを使うと何が変わるのか</h2>
-    <ul>
-      <li>文章作成や作業時間が短くなる</li>
-      <li>アイデア出しがすぐできる</li>
-      <li>副業や仕事の効率化につながる</li>
-    </ul>
-  </section>
-
-  <!-- CTA -->
-  <section>
-    <h2>まずは1つだけ触ってみる</h2>
-    <p>AIは「読む」より「使う」ほうが早く理解できます。</p>
-
-    <a href="/tools/chatgpt" class="cta-btn">ChatGPTを無料で使う</a>
-  </section>
-
-  <!-- ナビ（重要修正） -->
-  <section>
-    <h2>目的から探す</h2>
-    <ul>
-      <li><a href="/start">副業で使う</a></li>
-      <li><a href="/start">ブログ運営</a></li>
-      <li><a href="/start">業務効率化</a></li>
-    </ul>
-  </section>
-
-  <!-- サイト説明 -->
-  <section>
-    <h2>このサイトについて</h2>
-    <p>
-      AI Tools Guideでは、初心者でも使いやすいAIツールを中心に、
-      実際の使い方とあわせて紹介しています。
-    </p>
-  </section>
-
-  <!-- 記事一覧（安定版） -->
   <section>
     <h2>最新記事</h2>
 
@@ -118,10 +62,11 @@ const sortedPosts = posts
       {sortedPosts.map((post) => (
         <li>
           <a href={`/posts/${post.slug}`}>
-            {post.title}
+            {post.data.title}
           </a>
+
           <div style="font-size:0.8rem; color:#888;">
-            {post.date}
+            {post.data.date}
           </div>
         </li>
       ))}
