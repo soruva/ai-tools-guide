@@ -105,16 +105,42 @@ tr:last-child td {
   color: #0b0f17;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: 0.25s ease;
   margin-top: 10px;
 
+  position: relative;
+  overflow: hidden;
+
+  /* ベースの光 */
   box-shadow: 0 10px 25px rgba(124,92,255,0.25);
 }
 
+/* 光が流れるエフェクト */
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+/* ホバー時の浮き */
 .cta-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-  box-shadow: 0 14px 30px rgba(124,92,255,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(124,92,255,0.45);
+  opacity: 0.98;
 }
 
 /* ===== リンク ===== */
