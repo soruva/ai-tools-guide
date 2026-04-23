@@ -10,13 +10,13 @@ const { title } = Astro.props;
 
     <style is:global>
 
-      /* ===== テーマ統一（収益ブログ版） ===== */
+      /* ===== ライトテーマ（読みやすさ優先） ===== */
       :root {
-        --bg: #0b0f17;
-        --card: rgba(255, 255, 255, 0.09);
-        --text: #ffffff;
-        --subtext: rgba(255,255,255,0.7);
-        --border: rgba(255,255,255,0.1);
+        --bg: #f7f8fc;
+        --card: #ffffff;
+        --text: #111111;
+        --subtext: #555555;
+        --border: #e6e8ef;
         --accent: linear-gradient(135deg, #7c5cff, #2dd4ff);
       }
 
@@ -29,9 +29,9 @@ const { title } = Astro.props;
         font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 
         background:
-          radial-gradient(circle at top, #1a1f2e, #0b0f17),
-          radial-gradient(circle at 20% 30%, rgba(124,92,255,0.10), transparent 45%),
-          radial-gradient(circle at 80% 60%, rgba(45,212,255,0.08), transparent 45%);
+          radial-gradient(circle at top, #ffffff, #f3f6ff),
+          radial-gradient(circle at 20% 30%, rgba(124,92,255,0.06), transparent 50%),
+          radial-gradient(circle at 80% 60%, rgba(45,212,255,0.05), transparent 50%);
 
         color: var(--text);
         max-width: 780px;
@@ -80,15 +80,14 @@ const { title } = Astro.props;
         color: var(--subtext);
       }
 
-      /* ===== セクション（カードUI） ===== */
+      /* ===== カード ===== */
       section {
         background: var(--card);
         padding: 20px;
         border-radius: 16px;
         margin-bottom: 18px;
-        backdrop-filter: blur(10px);
         border: 1px solid var(--border);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.04);
       }
 
       /* ===== テーブル ===== */
@@ -97,14 +96,14 @@ const { title } = Astro.props;
         border-collapse: collapse;
         margin: 30px 0;
         font-size: 0.95rem;
-        background: rgba(255,255,255,0.02);
-        border-radius: 8px;
-        overflow: hidden;
+        background: var(--card);
         border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
       }
 
       th {
-        background: rgba(255,255,255,0.08);
+        background: #f3f6ff;
         color: var(--text);
         padding: 12px 15px;
         text-align: left;
@@ -121,15 +120,7 @@ const { title } = Astro.props;
         border-bottom: none;
       }
 
-      @media (max-width: 600px) {
-        table {
-          display: block;
-          overflow-x: auto;
-          white-space: nowrap;
-        }
-      }
-
-      /* ===== CTAボタン（重要：収益用） ===== */
+      /* ===== CTA（ここだけ強めに残す） ===== */
       .cta-btn {
         display: inline-block;
         padding: 12px 18px;
@@ -142,15 +133,14 @@ const { title } = Astro.props;
         transition: 0.25s ease;
 
         box-shadow:
-          0 10px 25px rgba(124,92,255,0.35),
-          0 0 20px rgba(45,212,255,0.15);
+          0 10px 25px rgba(124,92,255,0.25),
+          0 0 20px rgba(45,212,255,0.12);
       }
 
       .cta-btn:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow:
-          0 16px 40px rgba(124,92,255,0.5),
-          0 0 30px rgba(45,212,255,0.25);
+          0 14px 35px rgba(124,92,255,0.35);
       }
 
       /* ===== リスト ===== */
@@ -166,7 +156,7 @@ const { title } = Astro.props;
       footer {
         margin-top: 60px;
         font-size: 0.8rem;
-        color: var(--subtext);
+        color: #888;
         text-align: center;
       }
 
