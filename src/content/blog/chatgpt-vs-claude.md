@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT vs Claude｜どっちを使うべき？違いとおすすめの使い方を解説"
-date: "2026-04-23"
+date: "2026-04-19"
 ---
 
 ## ChatGPTとClaudeはどっちを使うべき？
