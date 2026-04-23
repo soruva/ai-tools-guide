@@ -4,8 +4,6 @@
   --text: #ffffff;
   --subtext: rgba(255,255,255,0.7);
   --border: rgba(255,255,255,0.1);
-
-  /* Aモチーフ（収益サイト向け） */
   --accent: linear-gradient(135deg, #7c5cff, #2dd4ff);
 }
 
@@ -47,6 +45,50 @@ section {
   backdrop-filter: blur(10px);
 }
 
+/* ===== テーブル (Markdown対応・完成版) ===== */
+/* モバイルで横に突き抜けないための設定 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: table; /* 消えないように強制 */
+}
+
+th {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border);
+  color: var(--subtext);
+  line-height: 1.5;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* スマホ等でテーブルがはみ出る場合はここを有効に */
+@media (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
 /* ===== CTAボタン ===== */
 .cta-btn {
   display: inline-block;
@@ -63,30 +105,6 @@ section {
 .cta-btn:hover {
   transform: translateY(-2px);
   opacity: 0.95;
-}
-
-/* ===== テーブル（ここが重要修正ポイント） ===== */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-  font-size: 0.95rem;
-  overflow-x: auto;
-  display: table;
-}
-
-th {
-  text-align: left;
-  padding: 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-  white-space: nowrap;
-}
-
-td {
-  padding: 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--subtext);
 }
 
 /* ===== リンク ===== */
@@ -116,33 +134,15 @@ footer {
   text-align: center;
 }
 
-/* ===== モバイル ===== */
+/* ===== モバイル全体の調整 ===== */
 @media (max-width: 600px) {
   body {
     padding: 18px 14px;
   }
-
   h1 {
     font-size: 1.8rem;
   }
-
   section {
     padding: 16px;
   }
-}
-
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-}
-
-.prose th {
-  border-bottom: 1px solid var(--border);
-  padding: 10px;
-}
-
-.prose td {
-  border-bottom: 1px solid var(--border);
-  padding: 10px;
 }
