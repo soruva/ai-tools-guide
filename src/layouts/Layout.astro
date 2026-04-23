@@ -9,98 +9,189 @@ const { title } = Astro.props;
     <title>{title} | AIツール比較ガイド</title>
 
     <style is:global>
+
+      /* ===== テーマ統一（収益ブログ版） ===== */
       :root {
-        --bg: #fafafa;
-        --text: #111111;
-        --subtext: #666666;
-        --border: #eaeaea;
-        --card: #ffffff;
+        --bg: #0b0f17;
+        --card: rgba(255, 255, 255, 0.09);
+        --text: #ffffff;
+        --subtext: rgba(255,255,255,0.7);
+        --border: rgba(255,255,255,0.1);
+        --accent: linear-gradient(135deg, #7c5cff, #2dd4ff);
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
-        max-width: 720px;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+        background:
+          radial-gradient(circle at top, #1a1f2e, #0b0f17),
+          radial-gradient(circle at 20% 30%, rgba(124,92,255,0.10), transparent 45%),
+          radial-gradient(circle at 80% 60%, rgba(45,212,255,0.08), transparent 45%);
+
+        color: var(--text);
+        max-width: 780px;
         margin: 0 auto;
         padding: 24px 18px 60px;
         line-height: 1.8;
-        color: var(--text);
-        background: var(--bg);
       }
 
+      /* ===== ナビ ===== */
       nav {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 40px;
+      }
+
+      .nav-right {
+        display: flex;
+        gap: 16px;
       }
 
       nav a {
         text-decoration: none;
         color: var(--subtext);
+        font-size: 0.9rem;
       }
 
+      nav a:hover {
+        color: var(--text);
+      }
+
+      /* ===== タイトル ===== */
       h1 {
         font-size: 2.2rem;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+        letter-spacing: -0.03em;
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-top: 40px;
+        margin-bottom: 10px;
       }
 
       p {
         color: var(--subtext);
       }
 
+      /* ===== セクション（カードUI） ===== */
+      section {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 16px;
+        margin-bottom: 18px;
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      }
+
+      /* ===== テーブル ===== */
       table {
         width: 100%;
         border-collapse: collapse;
         margin: 30px 0;
-        background: var(--card);
+        font-size: 0.95rem;
+        background: rgba(255,255,255,0.02);
+        border-radius: 8px;
+        overflow: hidden;
         border: 1px solid var(--border);
-      }
-
-      th, td {
-        padding: 12px;
-        border: 1px solid var(--border);
-        text-align: left;
       }
 
       th {
-        background: #f3f3f3;
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      td {
+        padding: 12px 15px;
+        color: var(--subtext);
+        border-bottom: 1px solid var(--border);
+      }
+
+      tr:last-child td {
+        border-bottom: none;
       }
 
       @media (max-width: 600px) {
         table {
           display: block;
           overflow-x: auto;
+          white-space: nowrap;
         }
       }
 
+      /* ===== CTAボタン（重要：収益用） ===== */
+      .cta-btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #0b0f17;
+        font-weight: 600;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: 0.25s ease;
+
+        box-shadow:
+          0 10px 25px rgba(124,92,255,0.35),
+          0 0 20px rgba(45,212,255,0.15);
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 16px 40px rgba(124,92,255,0.5),
+          0 0 30px rgba(45,212,255,0.25);
+      }
+
+      /* ===== リスト ===== */
+      ul {
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      /* ===== フッター ===== */
       footer {
         margin-top: 60px;
-        font-size: 0.75rem;
-        color: #aaa;
+        font-size: 0.8rem;
+        color: var(--subtext);
         text-align: center;
       }
+
     </style>
   </head>
 
   <body>
-  <nav class="nav">
-  <a href="/">AIツール比較ガイド</a>
 
-  <div class="nav-right">
-    <a href="/start">はじめる</a>
-    <a href="/about">運営者情報</a>
-    <a href="/privacy">プライバシーポリシー</a>
-  </div>
-</nav>
+    <nav>
+      <a href="/">AIツール比較ガイド</a>
+
+      <div class="nav-right">
+        <a href="/start">はじめる</a>
+        <a href="/about">運営者情報</a>
+        <a href="/privacy">プライバシーポリシー</a>
+      </div>
+    </nav>
 
     <main>
       <slot />
     </main>
 
-    <footer>© 2026 AIツール比較ガイド</footer>
+    <footer>
+      © 2026 AIツール比較ガイド
+    </footer>
+
   </body>
 </html>
