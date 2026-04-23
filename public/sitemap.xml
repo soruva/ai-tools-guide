@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- トップ -->
   <url>
-    <loc>https://あなたのドメイン/</loc>
+    <loc>https://ai-tools-guide.pages.dev/</loc>
   </url>
 
   <url>
-    <loc>https://あなたのドメイン/about</loc>
+    <loc>https://ai-tools-guide.pages.dev/start</loc>
   </url>
 
   <url>
-    <loc>https://あなたのドメイン/start</loc>
+    <loc>https://ai-tools-guide.pages.dev/about</loc>
+  </url>
+
+  <!-- ツール -->
+  <url>
+    <loc>https://ai-tools-guide.pages.dev/tools/chatgpt</loc>
+  </url>
+
+  <url>
+    <loc>https://ai-tools-guide.pages.dev/tools/claude</loc>
+  </url>
+
+  <url>
+    <loc>https://ai-tools-guide.pages.dev/tools/gemini</loc>
   </url>
 
 </urlset>
