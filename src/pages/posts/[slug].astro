@@ -1,18 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../content/blog/*.md');
-  return posts.map(post => ({
-    params: { slug: post.file.split('/').pop().split('.').shift() },
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
     props: { post },
   }));
 }
 
-const { Content, frontmatter } = Astro.props.post;
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={post.data.title}>
 
   <article>
 
@@ -20,14 +23,14 @@ const { Content, frontmatter } = Astro.props.post;
     <a href="/" class="back-link">← HOME</a>
 
     <!-- タイトル -->
-    <h1>{frontmatter.title}</h1>
+    <h1>{post.data.title}</h1>
 
     <!-- 日付 -->
-    <p class="date">公開日: {frontmatter.date}</p>
+    <p class="date">公開日: {post.data.date}</p>
 
     <hr />
 
-    <!-- 本文 -->
+    <!-- 本文（重要） -->
     <div class="content">
       <Content />
     </div>
