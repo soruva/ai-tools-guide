@@ -13,43 +13,50 @@ const sortedPosts = posts.sort(
 
 <Layout title="初心者向けAIツール比較ガイド">
 
+  <!-- ヒーロー -->
   <section>
 
-  <h1>
-    AIツールで迷っている人へ
-  </h1>
+    <h1>
+      AIツールで迷っている人へ
+    </h1>
 
-  <p>
-    ChatGPT・Claude・Geminiの違いから、副業での使い方まで
-    <strong>初心者が最短で理解できるように整理したサイトです。</strong>
-  </p>
+    <p>
+      ChatGPT・Claude・Geminiの違いから、副業での使い方まで
+      <strong>初心者が最短で理解できるように整理したサイトです。</strong>
+    </p>
 
-  <p>
-    「何から始めればいいか分からない」を、ここで終わらせます。
-  </p>
+    <p>
+      「何から始めればいいか分からない」を、ここで終わらせます。
+    </p>
 
-  <a href="/tools/chatgpt" class="cta-btn">
-    まずはChatGPTを無料で試す
-  </a>
+    <a href="/tools/chatgpt" class="cta-btn">
+      まずはChatGPTを無料で試す
+    </a>
 
-</section>
+  </section>
 
-<section>
-
-  <h2>このサイトで分かること</h2>
-
-  <ul>
-    <li>ChatGPT・Claude・Geminiの違い</li>
-    <li>初心者が最初にやるべきこと</li>
-    <li>AIを副業に使う具体的な方法</li>
-  </ul>
-
-</section>
+  <!-- このサイトで分かること -->
   <section>
+
+    <h2>このサイトで分かること</h2>
+
+    <ul>
+      <li>ChatGPT・Claude・Geminiの違い</li>
+      <li>初心者が最初にやるべきこと</li>
+      <li>AIを副業に使う具体的な方法</li>
+    </ul>
+
+  </section>
+
+  <!-- 比較 -->
+  <section>
+
     <h2>人気AIツール比較</h2>
+
     <p>
       まずは「どれを使うか」をここで決めてください。
     </p>
+
     <table>
       <thead>
         <tr>
@@ -58,17 +65,20 @@ const sortedPosts = posts.sort(
           <th>おすすめ用途</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td>ChatGPT</td>
           <td>万能型</td>
           <td>初心者向け</td>
         </tr>
+
         <tr>
           <td>Claude</td>
           <td>文章が自然</td>
           <td>ブログ向け</td>
         </tr>
+
         <tr>
           <td>Gemini</td>
           <td>検索強い</td>
@@ -77,23 +87,30 @@ const sortedPosts = posts.sort(
       </tbody>
     </table>
 
-<!-- ①意思決定直後CTA（軽い） -->
-<a href="/tools/chatgpt" class="cta-btn">
-  まずはChatGPTを試す
-</a>
+    <!-- 意思決定直後CTA -->
+    <p>
+      まずはChatGPTから始めるのが一番シンプルです。
+    </p>
 
-<!-- ②補助文（重要） -->
-<p>
-  迷った場合はChatGPTから始めるのが一番シンプルです。
-</p>
+    <a href="/tools/chatgpt" class="cta-btn">
+      まずはChatGPTを試す
+    </a>
 
-<!-- ③もう一押しCTA（強い） -->
-<a href="/tools/chatgpt" class="cta-btn">
-  ChatGPTで始める（無料）
-</a>
+    <!-- 補足 -->
+    <p>
+      無料で使えるので、まず触ってみるのが一番早いです。
+    </p>
+
+    <!-- 最後の後押しCTA -->
+    <a href="/tools/chatgpt" class="cta-btn">
+      ChatGPTで始める（無料）
+    </a>
+
   </section>
 
+  <!-- 記事一覧 -->
   <section>
+
     <h2>最新記事</h2>
 
     <ul>
@@ -109,6 +126,7 @@ const sortedPosts = posts.sort(
         </li>
       ))}
     </ul>
+
   </section>
 
 </Layout>
