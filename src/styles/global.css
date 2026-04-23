@@ -111,16 +111,18 @@ tr:last-child td {
   position: relative;
   overflow: hidden;
 
-  /* ベースの光 */
-  box-shadow: 0 10px 25px rgba(124,92,255,0.25);
+  /* 常時光る（重要） */
+  box-shadow:
+    0 10px 25px rgba(124,92,255,0.35),
+    0 0 20px rgba(45,212,255,0.15);
 }
 
-/* 光が流れるエフェクト */
+/* 光の流れ */
 .cta-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -120%;
   width: 100%;
   height: 100%;
   background: linear-gradient(
@@ -129,18 +131,20 @@ tr:last-child td {
     rgba(255,255,255,0.35),
     transparent
   );
-  transition: 0.5s;
+  transition: 0.6s;
 }
 
 .cta-btn:hover::before {
-  left: 100%;
+  left: 120%;
 }
 
-/* ホバー時の浮き */
+/* ホバー */
 .cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(124,92,255,0.45);
-  opacity: 0.98;
+  box-shadow:
+    0 16px 40px rgba(124,92,255,0.5),
+    0 0 30px rgba(45,212,255,0.25);
+  opacity: 1;
 }
 
 /* ===== リンク ===== */
