@@ -1,76 +1,70 @@
 :root {
-  --bg: #fafafa;
-  --text: #111111;
-  --subtext: #666666;
-  --border: #e6e6e6;
-  --card: #ffffff;
-}
+  --bg: #0b0f17;
+  --card: rgba(255, 255, 255, 0.06);
+  --text: #ffffff;
+  --subtext: rgba(255,255,255,0.7);
+  --border: rgba(255,255,255,0.1);
 
-html, body {
-  margin: 0;
-  padding: 0;
+  /* Aモチーフ・グラデーション */
+  --accent: linear-gradient(135deg, #6d5efc, #00d4ff);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  background: radial-gradient(circle at top, #111827, #05070d);
   color: var(--text);
-  line-height: 1.8;
-  max-width: 720px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 24px 18px 60px;
+  line-height: 1.8;
 }
 
-/* ===== Typography ===== */
+/* タイトル */
 h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
+  letter-spacing: -0.03em;
 }
 
+/* 見出し */
 h2 {
-  font-size: 1.2rem;
-  margin-top: 40px;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-top: 50px;
+}
+
+/* カード */
+section {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* CTAボタン */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #000;
   font-weight: 600;
-}
-
-p {
-  color: var(--subtext);
-  margin-bottom: 16px;
-}
-
-/* ===== Links ===== */
-a {
-  color: var(--text);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: 0.2s;
 }
 
-a:hover {
-  opacity: 0.8;
+.cta-btn:hover {
+  transform: translateY(-2px);
 }
 
-/* ===== Lists ===== */
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 6px;
-}
-
-/* ===== Table ===== */
+/* テーブル */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 0.95rem;
 }
 
 th {
-  font-weight: 600;
+  text-align: left;
   padding: 12px;
   border-bottom: 1px solid var(--border);
 }
@@ -78,63 +72,18 @@ th {
 td {
   padding: 12px;
   border-bottom: 1px solid var(--border);
-}
-
-/* ===== CTA Button ===== */
-.cta-btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
-  border: 1px solid var(--text);
-  border-radius: 999px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.2s ease;
-}
-
-.cta-btn:hover {
-  background: var(--text);
-  color: #fff;
-}
-
-/* ===== Back Link ===== */
-.back-link {
-  font-size: 0.85rem;
   color: var(--subtext);
 }
 
-.back-link:hover {
-  color: var(--text);
+/* リンク */
+a {
+  color: #7dd3fc;
 }
 
-/* ===== Section spacing ===== */
-section {
-  margin-bottom: 40px;
-}
-
-/* ===== Divider ===== */
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 30px 0;
-}
-
-/* ===== Footer ===== */
+/* フッター */
 footer {
   margin-top: 60px;
-  font-size: 0.75rem;
-  color: #aaa;
+  font-size: 0.8rem;
+  color: var(--subtext);
   text-align: center;
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 600px) {
-  body {
-    padding: 18px 14px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
 }
