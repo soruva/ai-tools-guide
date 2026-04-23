@@ -12,13 +12,14 @@ html, body {
   padding: 0;
 }
 
+/* ===== ベース背景（少し明るく調整） ===== */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 
   background:
-    radial-gradient(circle at top, #111827, #05070d),
-    radial-gradient(circle at 20% 30%, rgba(124,92,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(45,212,255,0.06), transparent 40%);
+    radial-gradient(circle at top, #1a1f2e, #0b0f17),
+    radial-gradient(circle at 20% 30%, rgba(124,92,255,0.10), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(45,212,255,0.08), transparent 45%);
 
   color: var(--text);
   max-width: 780px;
@@ -40,20 +41,18 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* ===== セクション（カードUI） ===== */
+/* ===== カード ===== */
 section {
   background: var(--card);
   padding: 20px;
   border-radius: 16px;
   margin-bottom: 18px;
   backdrop-filter: blur(10px);
-
   border: 1px solid rgba(255,255,255,0.12);
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-/* ===== テーブル (Markdown対応・完成版) ===== */
-/* モバイルで横に突き抜けないための設定 */
+/* ===== テーブル ===== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -63,7 +62,6 @@ table {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
-  display: table; /* 消えないように強制 */
 }
 
 th {
@@ -72,7 +70,7 @@ th {
   font-weight: 600;
   text-align: left;
   padding: 12px 15px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
 
@@ -80,14 +78,13 @@ td {
   padding: 12px 15px;
   border-bottom: 1px solid var(--border);
   color: var(--subtext);
-  line-height: 1.5;
 }
 
 tr:last-child td {
   border-bottom: none;
 }
 
-/* スマホ等でテーブルがはみ出る場合はここを有効に */
+/* スマホ */
 @media (max-width: 600px) {
   table {
     display: block;
@@ -96,7 +93,7 @@ tr:last-child td {
   }
 }
 
-/* ===== CTAボタン ===== */
+/* ===== CTAボタン（光る完成版） ===== */
 .cta-btn {
   display: inline-block;
   padding: 12px 18px;
@@ -105,19 +102,18 @@ tr:last-child td {
   color: #0b0f17;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.25s ease;
   margin-top: 10px;
+  transition: 0.25s ease;
 
   position: relative;
   overflow: hidden;
 
-  /* 常時光る（重要） */
   box-shadow:
     0 10px 25px rgba(124,92,255,0.35),
     0 0 20px rgba(45,212,255,0.15);
 }
 
-/* 光の流れ */
+/* 光エフェクト */
 .cta-btn::before {
   content: "";
   position: absolute;
@@ -138,13 +134,11 @@ tr:last-child td {
   left: 120%;
 }
 
-/* ホバー */
 .cta-btn:hover {
   transform: translateY(-3px);
   box-shadow:
     0 16px 40px rgba(124,92,255,0.5),
     0 0 30px rgba(45,212,255,0.25);
-  opacity: 1;
 }
 
 /* ===== リンク ===== */
@@ -174,19 +168,22 @@ footer {
   text-align: center;
 }
 
-/* ===== モバイル全体の調整 ===== */
+/* ===== モバイル ===== */
 @media (max-width: 600px) {
   body {
     padding: 18px 14px;
   }
+
   h1 {
     font-size: 1.8rem;
   }
+
   section {
     padding: 16px;
   }
 }
 
+/* ===== ナビ ===== */
 nav {
   display: flex;
   justify-content: space-between;
