@@ -5,8 +5,13 @@
   --subtext: rgba(255,255,255,0.7);
   --border: rgba(255,255,255,0.1);
 
-  /* Aモチーフ（収益サイト向けに少し落ち着かせる） */
+  /* Aモチーフ（収益サイト向け） */
   --accent: linear-gradient(135deg, #7c5cff, #2dd4ff);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -32,7 +37,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* ===== セクション（カード） ===== */
+/* ===== セクション（カードUI） ===== */
 section {
   background: var(--card);
   padding: 20px;
@@ -42,7 +47,7 @@ section {
   backdrop-filter: blur(10px);
 }
 
-/* ===== CTA ===== */
+/* ===== CTAボタン ===== */
 .cta-btn {
   display: inline-block;
   padding: 12px 18px;
@@ -60,12 +65,14 @@ section {
   opacity: 0.95;
 }
 
-/* ===== テーブル（重要：崩れ防止修正） ===== */
+/* ===== テーブル（ここが重要修正ポイント） ===== */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 12px;
   font-size: 0.95rem;
+  overflow-x: auto;
+  display: table;
 }
 
 th {
@@ -73,6 +80,7 @@ th {
   padding: 12px;
   border-bottom: 1px solid var(--border);
   color: var(--text);
+  white-space: nowrap;
 }
 
 td {
@@ -91,6 +99,15 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ===== リスト ===== */
+ul {
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
 /* ===== フッター ===== */
 footer {
   margin-top: 60px;
@@ -99,7 +116,7 @@ footer {
   text-align: center;
 }
 
-/* ===== モバイル最適化 ===== */
+/* ===== モバイル ===== */
 @media (max-width: 600px) {
   body {
     padding: 18px 14px;
