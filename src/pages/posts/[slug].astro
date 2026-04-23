@@ -32,12 +32,17 @@ const { Content, frontmatter } = Astro.props.post;
       <Content />
     </div>
 
-    <!-- 🔥 CTA（超重要） -->
+    <!-- CTA -->
     <section class="cta">
-      <h2>まずは無料で試してみる</h2>
-      <p>AIは実際に触るのが一番早いです。</p>
+      <h2>まずは1つだけ使ってみる</h2>
+      <p>
+        AIは読むより、実際に触ったほうが早く理解できます。
+      </p>
 
-      <a href="/tools/chatgpt" class="cta-btn">ChatGPTを使ってみる</a>
+      <div class="cta-buttons">
+        <a href="/tools/chatgpt" class="cta-btn">ChatGPTを使ってみる</a>
+        <a href="/tools/claude" class="cta-btn">Claudeも見てみる</a>
+      </div>
     </section>
 
   </article>
@@ -91,6 +96,13 @@ const { Content, frontmatter } = Astro.props.post;
       margin-top: 60px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
     }
   </style>
 
