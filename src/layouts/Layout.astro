@@ -4,7 +4,7 @@ const { title } = Astro.props;
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>{title} | AI Tools Guide</title>
+    <title>{title} | AIツール比較ガイド</title>
     <link rel="stylesheet" href="/src/styles/global.css">
     <style is:global>
       :root {
@@ -35,8 +35,10 @@ const { title } = Astro.props;
         font-size: 0.9rem;
       }
 
-      nav .left {
+      nav .left a {
         font-weight: 600;
+        text-decoration: none;
+        color: var(--text);
       }
 
       nav .right {
@@ -72,7 +74,6 @@ const { title } = Astro.props;
         color: var(--subtext);
       }
 
-      /* リスト（記事一覧） */
       ul {
         padding: 0;
       }
@@ -100,12 +101,10 @@ const { title } = Astro.props;
         color: #fff;
       }
 
-      /* セクション間隔 */
       section {
         margin-bottom: 40px;
       }
 
-      /* フッター */
       footer {
         margin-top: 60px;
         font-size: 0.75rem;
@@ -113,7 +112,6 @@ const { title } = Astro.props;
         text-align: center;
       }
 
-      /* モバイル */
       @media (max-width: 600px) {
         h1 {
           font-size: 1.8rem;
@@ -131,11 +129,11 @@ const { title } = Astro.props;
   <body>
     <nav>
       <div class="left">
-        <a href="/">AI Tools Guide</a>
+        <a href="/">AIツール比較ガイド</a>
       </div>
       <div class="right">
-        <a href="/start">Start</a>
-        <a href="/about">About</a>
+        <a href="/start">はじめる</a>
+        <a href="/about">このサイトについて</a>
       </div>
     </nav>
 
@@ -144,7 +142,7 @@ const { title } = Astro.props;
     </main>
 
     <footer>
-      © 2026 AI Tools Guide
+      © 2026 AIツール比較ガイド
     </footer>
   </body>
 </html>
