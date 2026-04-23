@@ -26,7 +26,7 @@ const { Content } = await post.render();
     <h1>{post.data.title}</h1>
 
     <!-- 日付 -->
-    <p class="date">公開日: {post.data.date}</p>
+    <p class="date">公開日: {post.data.date?.toString()}</p>
 
     <hr />
 
