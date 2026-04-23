@@ -40,15 +40,13 @@ section {
   background: var(--card);
   padding: 20px;
   border-radius: 16px;
-  border: 1px solid var(--border);
   margin-bottom: 18px;
   backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-section {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.12);
-}
 /* ===== テーブル (Markdown対応・完成版) ===== */
 /* モバイルで横に突き抜けないための設定 */
 table {
