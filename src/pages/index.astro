@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
 const posts = await Astro.glob('../content/blog/*.md');
+
+const sortedPosts = posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+);
 ---
 
 <Layout title="初心者向けAIツール比較ガイド">
@@ -52,7 +59,7 @@ const posts = await Astro.glob('../content/blog/*.md');
     </table>
 
     <p style="margin-top:16px;">
-      もし迷うなら、まずは<strong>ChatGPT</strong>から始めるのが一番シンプルです。
+      迷うならまず<strong>ChatGPT</strong>から始めるのが一番シンプルです。
     </p>
 
     <a href="/tools/chatgpt" class="cta-btn">
@@ -103,7 +110,7 @@ const posts = await Astro.glob('../content/blog/*.md');
   <section>
     <h2>最新記事</h2>
     <ul>
-      {posts.map((post) => (
+      {sortedPosts.map((post) => (
         <li>
           <a href={`/posts/${post.file.split('/').pop().split('.').shift()}`}>
             {post.frontmatter.title}
