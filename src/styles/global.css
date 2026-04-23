@@ -130,3 +130,19 @@ footer {
     padding: 16px;
   }
 }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.prose th {
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+}
+
+.prose td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+}
