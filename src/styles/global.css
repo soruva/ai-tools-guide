@@ -186,3 +186,7 @@ footer {
     padding: 16px;
   }
 }
+
+.cta-btn {
+  background: red !important;
+}
