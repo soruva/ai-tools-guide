@@ -6,7 +6,7 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <title>{title} | AIツール比較ガイド</title>
     <link rel="stylesheet" href="/src/styles/global.css">
-    <style is:global>
+        <style is:global>
       :root {
         --bg: #fafafa;
         --text: #111111;
@@ -74,14 +74,49 @@ const { title } = Astro.props;
         color: var(--subtext);
       }
 
-      ul {
+      /* リスト (通常のリストのみに適用、テーブル内には干渉させない) */
+      main > ul, main section > ul {
         padding: 0;
       }
 
-      li {
+      main > ul li, main section > ul li {
         list-style: none;
         padding: 18px 0;
         border-bottom: 1px solid var(--border);
+      }
+
+      /* ===== テーブル (Markdown対応) ===== */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 0.95rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+      }
+
+      th {
+        background: #f1f1f1;
+        color: var(--text);
+        font-weight: 600;
+        text-align: left;
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+      }
+
+      td {
+        padding: 12px 15px;
+        border: 1px solid var(--border);
+        color: var(--subtext);
+      }
+
+      /* モバイルで横スクロール可能にする */
+      @media (max-width: 600px) {
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
       }
 
       /* CTA */
@@ -124,25 +159,5 @@ const { title } = Astro.props;
         }
       }
     </style>
-  </head>
 
-  <body>
-    <nav>
-      <div class="left">
-        <a href="/">AIツール比較ガイド</a>
-      </div>
-      <div class="right">
-        <a href="/start">はじめる</a>
-        <a href="/about">このサイトについて</a>
-      </div>
-    </nav>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer>
-      © 2026 AIツール比較ガイド
-    </footer>
-  </body>
 </html>
