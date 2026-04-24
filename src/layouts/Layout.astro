@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 const { title } = Astro.props;
 ---
 
@@ -7,181 +8,94 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | AIツール比較ガイド</title>
-
-    <style is:global>
-
-      /* ===== ライトテーマ（読みやすさ優先） ===== */
-      :root {
-        --bg: #f7f8fc;
-        --card: #ffffff;
-        --text: #111111;
-        --subtext: #555555;
-        --border: #e6e8ef;
-        --accent: linear-gradient(135deg, #7c5cff, #2dd4ff);
-      }
-
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-
-        background:
-          radial-gradient(circle at top, #ffffff, #f3f6ff),
-          radial-gradient(circle at 20% 30%, rgba(124,92,255,0.06), transparent 50%),
-          radial-gradient(circle at 80% 60%, rgba(45,212,255,0.05), transparent 50%);
-
-        color: var(--text);
-        max-width: 780px;
-        margin: 0 auto;
-        padding: 24px 18px 60px;
-        line-height: 1.8;
-      }
-
-      /* ===== ナビ ===== */
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 40px;
-      }
-
-      .nav-right {
-        display: flex;
-        gap: 16px;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: var(--subtext);
-        font-size: 0.9rem;
-      }
-
-      nav a:hover {
-        color: var(--text);
-      }
-
-      /* ===== タイトル ===== */
-      h1 {
-        font-size: 2.2rem;
-        margin-bottom: 16px;
-        letter-spacing: -0.03em;
-      }
-
-      h2 {
-        font-size: 1.25rem;
-        margin-top: 40px;
-        margin-bottom: 10px;
-      }
-
-      p {
-        color: var(--subtext);
-      }
-
-      /* ===== カード ===== */
-      section {
-        background: var(--card);
-        padding: 20px;
-        border-radius: 16px;
-        margin-bottom: 18px;
-        border: 1px solid var(--border);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      }
-
-      /* ===== テーブル ===== */
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 30px 0;
-        font-size: 0.95rem;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      th {
-        background: #f3f6ff;
-        color: var(--text);
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid var(--border);
-      }
-
-      td {
-        padding: 12px 15px;
-        color: var(--subtext);
-        border-bottom: 1px solid var(--border);
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      /* ===== CTA（ここだけ強めに残す） ===== */
-      .cta-btn {
-        display: inline-block;
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: var(--accent);
-        color: #0b0f17;
-        font-weight: 600;
-        text-decoration: none;
-        margin-top: 10px;
-        transition: 0.25s ease;
-
-        box-shadow:
-          0 10px 25px rgba(124,92,255,0.25),
-          0 0 20px rgba(45,212,255,0.12);
-      }
-
-      .cta-btn:hover {
-        transform: translateY(-2px);
-        box-shadow:
-          0 14px 35px rgba(124,92,255,0.35);
-      }
-
-      /* ===== リスト ===== */
-      ul {
-        padding-left: 18px;
-      }
-
-      li {
-        margin-bottom: 6px;
-      }
-
-      /* ===== フッター ===== */
-      footer {
-        margin-top: 60px;
-        font-size: 0.8rem;
-        color: #888;
-        text-align: center;
-      }
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
 
   <body>
 
-    <nav>
-      <a href="/">AIツール比較ガイド</a>
+    <div class="bg-mesh" aria-hidden="true">
+      <div class="mesh-blob mesh-blob--1"></div>
+      <div class="mesh-blob mesh-blob--2"></div>
+      <div class="mesh-blob mesh-blob--3"></div>
+    </div>
 
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo__icon">✦</span>
+        <span>AIツール比較ガイド</span>
+      </a>
       <div class="nav-right">
-        <a href="/start">はじめる</a>
-        <a href="/about">運営者情報</a>
-        <a href="/privacy">プライバシーポリシー</a>
+        <a href="/start" class="nav-link">はじめる</a>
+        <a href="/about" class="nav-link">運営者情報</a>
+        <a href="/privacy" class="nav-link">プライバシーポリシー</a>
       </div>
+      <button class="nav-hamburger" id="navToggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
 
-    <main>
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <a href="/start">はじめる</a>
+      <a href="/about">運営者情報</a>
+      <a href="/privacy">プライバシーポリシー</a>
+    </div>
+
+    <main class="main">
       <slot />
     </main>
 
-    <footer>
-      © 2026 AIツール比較ガイド
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo__icon">✦</span>
+          AIツール比較ガイド
+        </div>
+        <div class="footer-links">
+          <a href="/about">運営者情報</a>
+          <a href="/privacy">プライバシーポリシー</a>
+        </div>
+        <p class="footer-copy">© 2026 AIツール比較ガイド — 初心者のためのAI情報メディア</p>
+      </div>
     </footer>
+
+    <script>
+      // ハンバーガーメニュー
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle?.addEventListener('click', () => {
+        menu?.classList.toggle('open');
+        toggle.classList.toggle('active');
+      });
+
+      // スクロールアニメーション
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('section, .fade-in').forEach((el) => {
+        el.classList.add('scroll-hidden');
+        observer.observe(el);
+      });
+
+      // ナビスクロール影
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav');
+        if (window.scrollY > 10) {
+          nav?.classList.add('scrolled');
+        } else {
+          nav?.classList.remove('scrolled');
+        }
+      });
+    </script>
 
   </body>
 </html>
