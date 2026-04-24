@@ -30,7 +30,10 @@ Aiartyには無料版もありますが、**ブログで継続的に使うなら
 <img border="0" width="300" height="250" alt="" src="https://www29.a8.net/svt/bgt?aid=260424353967&wid=005&eno=01&mid=s00000018952003004000&mc=1"></a>
 <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4B1SPT+FZQ9UA+428G+HVV0H" alt="">
 
-[→ Aiarty Image Enhancerを公式サイトで詳しく見る](https://px.a8.net/svt/ejp?a8mat=4B1SPT+FZQ9UA+428G+HVV0H)
+<br>
+
+→ 驚きの高画質化を体感する：<a href="https://px.a8.net/svt/ejp?a8mat=4B1SPT+FZQ9UA+428G+HVFKY" rel="nofollow">【Aiarty Image Enhancer】</a>
+<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4B1SPT+FZQ9UA+428G+HVFKY" alt="">
 
 </div>
 
