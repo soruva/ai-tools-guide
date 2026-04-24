@@ -1,5 +1,5 @@
 ---
-title: "AI生成画像の画質が気になる方へ｜Aiarty Image Enhancerを使ってみた"
+title: "AI生成画像がガビガビ…を卒業！Aiarty Image Enhancerで画質を上げる方法"
 date: "2026-04-24"
 ---
 
