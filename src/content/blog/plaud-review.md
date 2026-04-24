@@ -115,3 +115,8 @@ PLAUD NOTE Proは、「話す」ことで記録・整理の作業を効率化で
 
 <a href="https://px.a8.net/svt/ejp?a8mat=4B1SPR+EGYE6Q+5J4W+5YZ76" rel="nofollow">→ PLAUD NOTE Proの公式サイトを見る</a>
 <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4B1SPR+EGYE6Q+5J4W+5YZ76" alt="">
+
+
+---
+
+※本記事の情報は執筆時点のものです。各サービスの仕様・料金・機能は変更される場合があります。最新情報は必ず各公式サイトをご確認ください。
